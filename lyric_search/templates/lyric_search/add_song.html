@@ -1,0 +1,14 @@
+{% extends 'lyric_search/base.html' %}
+
+    {% block content %}
+
+    <form method="POST" action="{% url 'add_song' %}">
+        {% csrf_token %}
+
+        {{ form }}
+
+        <button type="submit">enter</button>
+
+    </form>
+
+    {% endblock %}

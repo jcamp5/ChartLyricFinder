@@ -1,0 +1,42 @@
+{% extends 'lyric_search/base.html' %}
+
+{% block content %}
+
+<style>
+  td a {
+      display: block;
+  }
+</style>
+
+       
+<p class="lead">
+    <table>
+    <tr>
+        <th>Rank</th>
+        <th>Song Title</th>
+        <th>Artist</th>
+    </tr>
+     
+    {% for s in songs %}
+
+    <tr data-href="{% url 'lyrics' id=s.rank %}">
+        <td><a href="{% url 'lyrics' id=s.rank %}">{{ s.rank }}</a></td>
+        <td><a href="{% url 'lyrics' id=s.rank %}">{{ s.title }}</a></td>
+        <td><a href="{% url 'lyrics' id=s.rank %}">{{ s.artist }}</a></td>
+    </tr>
+    
+      {% endfor %}
+
+    </table>
+
+</p>
+
+<script>
+    jQuery(document).ready(function($) {
+      $('*[data-href]').on('click', function() {
+          window.location = $(this).data("href");
+      });
+    });
+</script>
+
+{% endblock %}
