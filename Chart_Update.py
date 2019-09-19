@@ -33,6 +33,6 @@ chart = billboard.ChartData('hot-100')
 
 #delete_and_add()
 update()
-
+#hahahah
 cursor.close()
 cnx.close()
