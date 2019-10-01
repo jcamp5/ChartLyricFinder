@@ -46,3 +46,13 @@
 <h5 class=small style=text-indent:10px>Made by Julian Camp. For more details visit the <a href="{% url 'about' %}">about</a> page.</h5>
         
 {% endblock %}
+
+{% block script %}
+  <script>
+    jQuery(document).ready(function($) {
+      $(".clickable-row").click(function() {
+          window.location = $(this).data("href");
+      });
+    });
+  </script>
+{% endblock %}
