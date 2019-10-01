@@ -6,37 +6,42 @@
   td a {
       display: block;
   }
+  th, td {
+    padding:15px 
+  }
+  tr.clickable-row {
+    cursor: pointer;
+  }
 </style>
 
        
-<p class="lead">
-    <table>
+<form>
+    <div class="form-group">
+      <input type="search" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Search lyrics">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+<table class="table table-hover">
+  <thead class="thead-light">
     <tr>
-        <th>Rank</th>
-        <th>Song Title</th>
-        <th>Artist</th>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Artist</th>
     </tr>
-     
+  </thead>
+  <tbody>
     {% for s in songs %}
-
-    <tr data-href="{% url 'lyrics' id=s.rank %}">
-        <td><a href="{% url 'lyrics' id=s.rank %}">{{ s.rank }}</a></td>
-        <td><a href="{% url 'lyrics' id=s.rank %}">{{ s.title }}</a></td>
-        <td><a href="{% url 'lyrics' id=s.rank %}">{{ s.artist }}</a></td>
+    <tr class='clickable-row' data-href="{% url 'lyrics' id=s.rank %}">
+      <td scope="row">{{s.rank}}</td>
+      <td>{{s.title}}</td>
+      <td>{{s.artist}}</td>
     </tr>
-    
-      {% endfor %}
+    {% endfor %}
+    </tr>
+  </tbody>
+</table>
 
-    </table>
-
-</p>
-
-<script>
-    jQuery(document).ready(function($) {
-      $('*[data-href]').on('click', function() {
-          window.location = $(this).data("href");
-      });
-    });
-</script>
-
+<h5 class=small style=text-indent:10px>Made by Julian Camp. For more details visit the <a href="{% url 'about' %}">about</a> page.</h5>
+        
 {% endblock %}
