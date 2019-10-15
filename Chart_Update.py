@@ -1,5 +1,9 @@
 import mysql.connector
 import billboard
+import lyricsgenius
+
+
+
 
 
 def delete_and_add():
@@ -14,8 +18,9 @@ def delete_and_add():
 
 def update():
     for i in range(100):
+        song = genius.search_song(chart[i].title, chart[i].artist)
         sql = ("UPDATE lyric_search_song SET title = %s, artist = %s, lyrics = %sWHERE id = %s")
-        val = (chart[i].title, chart[i].artist, "TODO: insert lyrics here", i + 1)
+        val = (chart[i].title, chart[i].artist, song.lyrics, i + 1)
 
         cursor.execute(sql, val)
         cnx.commit()
@@ -30,6 +35,8 @@ cnx = mysql.connector.connect(
 cursor = cnx.cursor()
 
 chart = billboard.ChartData('hot-100')
+genius = lyricsgenius.Genius('vN3XWRhSbaH74LFf2HpCDfdQou-1YSfIdAAHp_sL8q6xQOLTEpi4TXDI5LWdWM0i')
+
 
 #delete_and_add()
 update()
