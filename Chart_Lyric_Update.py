@@ -1,7 +1,7 @@
 import lyricsgenius
 
 
-genius = lyricsgenius.Genius('vN3XWRhSbaH74LFf2HpCDfdQou-1YSfIdAAHp_sL8q6xQOLTEpi4TXDI5LWdWM0i')
+genius = lyricsgenius.Genius('bFSy9jEEXEe758Kf82Tpe-pUPb5A9Gs8r4F_YKn6BehF4u6sphLMEaUprO4bOt__')
 song = genius.search_song('Truth Hurts', 'Lizzo')
 test = song.lyrics
 

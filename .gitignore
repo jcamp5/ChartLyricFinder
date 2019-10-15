@@ -122,3 +122,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+#personal scripts
+Chart_Lyric_Update.py
+Chart_Update.py
