@@ -9,7 +9,12 @@ from .forms import SongForm
 class index(View):
 
     def get(self, request):
-        songs = Song.objects.order_by('rank')
+
+        search_query = request.GET.get('search_query')
+        if search_query:
+            songs = Song.objects.filter(lyrics__iregex='\\b' + search_query + '\\b')
+        else:
+            songs = Song.objects.order_by('rank')
         context = {'songs' : songs}
         return render(request, 'lyric_search/index.html', context)
 

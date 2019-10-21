@@ -2,10 +2,12 @@
 
 {% block content %}
 
-<p class="lead" style= text-align:left>
-    <h1>{{ song.title }}</h1>
-    <h2>By {{ song.artist }}</h2>
-
-    {{song.lyrics}}
-</p>
+<div class="text-center">
+    <p class="lead">
+        <h1>{{ song.title }}</h1>
+        <h2>By {{ song.artist }}</h2>
+        <br>
+        <pre>{{song.lyrics}}</pre>
+    </p>
+</div>
 {% endblock %}

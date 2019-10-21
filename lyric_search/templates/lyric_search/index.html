@@ -15,9 +15,9 @@
 </style>
 
 
-<form class="" action="">
+<form action="{% url 'index' %}" method="GET">
     <div class="input-group input-group-lg">
-      <input type="text" class="text-center" type="text" placeholder="Search lyrics">
+      <input type="text" class="text-center" name="search_query" type="text" placeholder="Search lyrics">
       <div class="input-group-append">
         <button class="btn btn-primary rounded-0" type="submit">Search</button>
       </div>
